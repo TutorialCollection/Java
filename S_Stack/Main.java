@@ -9,6 +9,8 @@ public class Main {
 
     public static void main( String[] args ) {
         Stack<String> s = new Stack<>();
+        s.push("Milan");
+        s.push("Roma");
         s.push("Juve");
         s.push("Inter");
         System.out.println(s.pop());
