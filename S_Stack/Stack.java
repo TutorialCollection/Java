@@ -14,6 +14,10 @@ public class Stack<T> {
         list = new ArrayList<T>();
     }
     
+    public boolean isEmpty() {
+        return list.isEmpty();
+    }
+
     public void push( T newElement ) {
         list.add(newElement); 
     }
