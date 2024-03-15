@@ -2,6 +2,28 @@ package L_Lista;
 
 public class Lista {
 
+    class Iteratore {
+        private Nodo nodo;
+        private Iteratore(Nodo nodo) {
+            this.nodo = nodo;
+        }
+        public boolean hasNext() {
+            return nodo!=null;
+        }
+        public Nodo next() {
+            if (nodo==null) return null;
+            // Nodo result = new Nodo( nodo.getValore(), nodo.getSuccessivo() );
+            Nodo result = nodo;
+            nodo = nodo.getSuccessivo();
+            return result;
+        }
+    }
+
+    public Iteratore getIterator() {
+        Iteratore i = new Iteratore(radice);
+        return i;
+    }
+
     Nodo radice;
     
     public Lista() {
@@ -43,6 +65,19 @@ public class Lista {
         }
         n.setSuccessivo(p2);
         p1.setSuccessivo(n);
+    }
+
+    public boolean addAfter( int pos, Nodo n ) {
+        // aggiunge il nodo n solo dopo aver oltrepassato il nodo di indice pos
+        Iteratore iter = this.getIterator();
+        int i; Nodo npos=null;
+        for (i=0; i<pos; i++) {
+            if (iter.hasNext()) npos = iter.next();
+            else return false;
+        }
+        n.setSuccessivo(npos.getSuccessivo());
+        npos.setSuccessivo(n);
+        return true;
     }
 
     public String toString() {
