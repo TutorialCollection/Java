@@ -7,6 +7,8 @@ public class Main {
         ProntoSoccorso rizzoli = new ProntoSoccorso();
         System.out.println(rizzoli);
 
+        System.out.println(rizzoli.cercaPazienti("red"));
+
     }
 
 

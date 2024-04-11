@@ -9,6 +9,20 @@ public class ProntoSoccorso {
         loadFromFile();
     }
 
+    public String cercaPazienti( String triage ) {
+        String result = "Lista pazienti con triage=" + triage + ":\n";
+        Nodo<Paziente> p = ps.getRoot();
+        while (p!=null) {
+            if (p.getValore().getTriage().equals(triage)) {
+                result += p + "\n";
+            }
+            p = p.getSuccessivo();
+        }
+        return result;
+    }
+
+
+
     private void loadFromFile() {
         // per il momento lo facciamo "sdozzo"
         ps.addTail( new Paziente("Mario", "Rossi", "white") );

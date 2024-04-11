@@ -9,6 +9,10 @@ public class Lista<T> {
         this.root = null;
     }
 
+    public Nodo<T> getRoot() {
+        return root;
+    }
+
     public boolean isEmpty() {
         return root==null;
     }
@@ -50,12 +54,6 @@ public class Lista<T> {
         npos.setSuccessivo(n);
         return true;
     }
-
-
-
-
-
-
     
     public String toString() {
         String s = "\nLIST BEGIN *************\n";
